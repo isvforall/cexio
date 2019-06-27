@@ -1,6 +1,6 @@
 # cex_trading
 
-
+[![crates.io](https://meritbadge.herokuapp.com/cex_trading)](https://crates.io/crates/cex_trading)
 [![MIT licensed](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE-MIT)
 
 Rust Library for the [Cex.io API](https://cex.io/rest-api)
@@ -16,7 +16,7 @@ Add this to your Cargo.toml
 
 ```toml
 [dependencies]
-cex_trading = { git = "https://github.com/isvforall/cex_trading.git" }
+cex_trading = "0.1.1"
 ```
 
 ## Example

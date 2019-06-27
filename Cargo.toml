@@ -1,6 +1,6 @@
 [package]
 name = "cex_trading"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Sergey Isaev <isvforall@gmail.com>"]
 edition = "2018"
 
@@ -22,7 +22,7 @@ include = [
 
 [dependencies]
 reqwest = "0.9.18"
-serde = { version = "1.0.93", features = ["derive"] }
+serde = { version = "1.0.94", features = ["derive"] }
 ring = "0.14.6"
 hex = "0.3.2"
 strum_macros = "0.15.0"
