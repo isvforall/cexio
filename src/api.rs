@@ -278,7 +278,7 @@ mod tests {
         assert!(CexAPI::trade_history(Symbol::BTC, Symbol::USD).is_ok());
     }
 
-    // Private API call
+    // Private API calls
     lazy_static! {
         static ref f: String =
             fs::read_to_string("/home/isvforall/credentials.toml").expect("File not found");

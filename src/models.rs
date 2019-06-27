@@ -116,11 +116,73 @@ pub struct BTC {
     pub available: String,
     pub orders: String,
 }
+
+#[derive(Debug, Deserialize)]
+pub struct BCH {
+    pub available: String,
+    pub orders: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct ETH {
+    pub available: String,
+    pub orders: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct LTC {
+    pub available: String,
+    pub orders: String,
+}
+#[derive(Debug, Deserialize)]
+pub struct DASH {
+    pub available: String,
+    pub orders: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct ZEC {
+    pub available: String,
+    pub orders: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct USD {
+    pub available: String,
+    pub orders: String,
+}
+#[derive(Debug, Deserialize)]
+pub struct EUR {
+    pub available: String,
+    pub orders: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct GBP {
+    pub available: String,
+    pub orders: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct RUB {
+    pub available: String,
+    pub orders: String,
+}
+
 #[derive(Debug, Deserialize)]
 pub struct BalanceResult {
     pub timestamp: String,
     pub username: String,
     pub BTC: BTC,
+    pub BCH: BCH,
+    pub ETH: ETH,
+    pub LTC: LTC,
+    pub DASH: DASH,
+    pub ZEC: ZEC,
+    pub USD: USD,
+    pub EUR: EUR,
+    pub GBP: GBP,
+    pub RUB: RUB,
 }
 
 #[derive(Deserialize, Debug)]
