@@ -1,0 +1,18 @@
+[package]
+name = "cex_trading"
+version = "0.1.0"
+authors = ["Sergey Isaev <isvforall@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = "0.9.18"
+serde = { version = "1.0.93", features = ["derive"] }
+ring = "0.14.6"
+hex = "0.3.2"
+strum_macros = "0.15.0"
+
+[dev-dependencies]
+toml = "0.5.1"
+lazy_static = "1.3.0"
