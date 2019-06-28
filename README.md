@@ -1,6 +1,8 @@
 # cex_trading
 
 [![crates.io](https://meritbadge.herokuapp.com/cex_trading)](https://crates.io/crates/cex_trading)
+[![Downloads from crates.io](https://img.shields.io/crates/d/cex_trading.svg)](https://crates.io/crates/cex_trading)
+[![doc.rs](https://docs.rs/cex_trading/badge.svg)](https://docs.rs/cex_trading/)
 [![MIT licensed](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE-MIT)
 
 Rust Library for the [Cex.io API](https://cex.io/rest-api)
