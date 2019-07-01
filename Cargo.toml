@@ -1,15 +1,15 @@
 [package]
-name = "cex_trading"
-version = "0.1.1"
+name = "cexio"
+version = "0.1.0"
 authors = ["Sergey Isaev <isvforall@gmail.com>"]
 edition = "2018"
 
 description = "Client for Cex.io crypto exchange API"
 keywords = ["cexio", "cryptocurrency", "trading", "bitcoin", "crypto"]
 license = "MIT"
-repository = "https://github.com/isvforall/cex_trading"
-homepage = "https://github.com/isvforall/cex_trading"
-documentation = "https://docs.rs/cex_trading"
+repository = "https://github.com/isvforall/cexio"
+homepage = "https://github.com/isvforall/cexio"
+documentation = "https://docs.rs/cexio"
 readme = "README.md"
 categories = ["api-bindings"]
 include = [

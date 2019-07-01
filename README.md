@@ -1,8 +1,8 @@
 # cex_trading
 
-[![crates.io](https://meritbadge.herokuapp.com/cex_trading)](https://crates.io/crates/cex_trading)
-[![Downloads from crates.io](https://img.shields.io/crates/d/cex_trading.svg)](https://crates.io/crates/cex_trading)
-[![doc.rs](https://docs.rs/cex_trading/badge.svg)](https://docs.rs/cex_trading/)
+[![crates.io](https://meritbadge.herokuapp.com/cexio)](https://crates.io/crates/cexio)
+[![Downloads from crates.io](https://img.shields.io/crates/d/cexio.svg)](https://crates.io/crates/cexio)
+[![doc.rs](https://docs.rs/cexio/badge.svg)](https://docs.rs/cexio/)
 [![MIT licensed](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE-MIT)
 
 Rust Library for the [Cex.io API](https://cex.io/rest-api)
@@ -18,25 +18,26 @@ Add this to your Cargo.toml
 
 ```toml
 [dependencies]
-cex_trading = "0.1.1"
+cexio = "0.1.0"
 ```
 
 ## Example
 
 ```rust
-use cex_trading::api::CexAPI;
-use cex_trading::models::Symbol;
+use cexio::api::CexAPI;
+use cexio::models::Symbol;
 
-const CEX_USERID: &str = ""; // your user id
-const CEX_API_KEY: &str = ""; // your api key
-const CEX_API_SECRET: &str = ""; // your api secret
+const CEX_USER_ID: &str = "your user id";
+const CEX_API_KEY: &str = "your api key";
+const CEX_API_SECRET: &str = "your api secret";
 
 fn main() {
+
     // Public API calls
     println!("{:?}", CexAPI::last_price(Symbol::BTC, Symbol::USD));
 
     // Private API calls
-    let cex = CexAPI::new(CEX_USERID, CEX_API_KEY, CEX_API_SECRET);
+    let cex = CexAPI::new(CEX_USER_ID, CEX_API_KEY, CEX_API_SECRET);
     println!("{:?}", cex.balance());
 }
 
