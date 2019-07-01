@@ -1,4 +1,4 @@
-# cex_trading
+# cexio
 
 [![crates.io](https://meritbadge.herokuapp.com/cexio)](https://crates.io/crates/cexio)
 [![Downloads from crates.io](https://img.shields.io/crates/d/cexio.svg)](https://crates.io/crates/cexio)
@@ -39,6 +39,7 @@ fn main() {
     // Private API calls
     let cex = CexAPI::new(CEX_USER_ID, CEX_API_KEY, CEX_API_SECRET);
     println!("{:?}", cex.balance());
+
 }
 
 ```
