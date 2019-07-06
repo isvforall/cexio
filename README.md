@@ -1,11 +1,11 @@
-# cexio
+<h1 align="center"> cexio </h1>
+
+<h5 align="center"> Rust Library for the <a href="https://cex.io/rest-api"> Cex.io API</a> </h5>
 
 [![crates.io](https://meritbadge.herokuapp.com/cexio)](https://crates.io/crates/cexio)
 [![Downloads from crates.io](https://img.shields.io/crates/d/cexio.svg)](https://crates.io/crates/cexio)
 [![doc.rs](https://docs.rs/cexio/badge.svg)](https://docs.rs/cexio/)
 [![MIT licensed](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE-MIT)
-
-Rust Library for the [Cex.io API](https://cex.io/rest-api)
 
 ## Risk Warning
 
