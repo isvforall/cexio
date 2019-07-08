@@ -5,6 +5,7 @@
 [![crates.io](https://meritbadge.herokuapp.com/cexio)](https://crates.io/crates/cexio)
 [![Downloads from crates.io](https://img.shields.io/crates/d/cexio.svg)](https://crates.io/crates/cexio)
 [![doc.rs](https://docs.rs/cexio/badge.svg)](https://docs.rs/cexio/)
+[![Dependency status](https://deps.rs/repo/github/isvforall/cexio/status.svg)](https://deps.rs/repo/github/isvforall/cexio)
 [![MIT licensed](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE-MIT)
 
 ## Risk Warning
