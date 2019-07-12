@@ -21,6 +21,8 @@ pub enum Symbol {
     XLM,
     ZEC,
     RUB,
+    TRX,
+    BTT,
 }
 
 pub fn symbols_to_string(symbols: Vec<Symbol>) -> String {
