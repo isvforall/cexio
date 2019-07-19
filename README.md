@@ -19,7 +19,7 @@ Add this to your Cargo.toml
 
 ```toml
 [dependencies]
-cexio = "0.1.0"
+cexio = "0.1.1"
 ```
 
 ## Example
