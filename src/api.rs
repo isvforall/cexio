@@ -5,7 +5,7 @@ use crate::request::*;
 use std::collections::HashMap;
 use std::time::SystemTime;
 
-use ring::{digest, hmac};
+use ring::hmac;
 
 use hex::encode;
 
@@ -35,9 +35,10 @@ impl CexAPI {
             .unwrap()
             .as_micros()
             .to_string();
-        let signed_key = hmac::SigningKey::new(&digest::SHA256, &self.cex_api_secret.as_bytes());
 
-        let mut context = hmac::SigningContext::with_key(&signed_key);
+        let signed_key = hmac::Key::new(ring::hmac::HMAC_SHA256, &self.cex_api_secret.as_bytes());
+
+        let mut context = hmac::Context::with_key(&signed_key);
         context.update(&nonce.as_bytes());
         context.update(&self.cex_userid.as_bytes());
         context.update(&self.cex_api_key.as_bytes());
