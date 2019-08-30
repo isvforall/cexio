@@ -23,6 +23,9 @@ pub enum Symbol {
     RUB,
     TRX,
     BTT,
+    GUSD,
+    ONT,
+    ONG,
 }
 
 pub fn symbols_to_string(symbols: Vec<Symbol>) -> String {
