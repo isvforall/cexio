@@ -227,7 +227,7 @@ mod tests {
     use std::fs;
 
     #[derive(Deserialize)]
-    struct Credentions {
+    struct Credentials {
         CEX_USERID: String,
         CEX_API_KEY: String,
         CEX_API_SECRET: String,
@@ -283,10 +283,10 @@ mod tests {
     lazy_static! {
         static ref f: String =
             fs::read_to_string("/home/isvforall/credentials.toml").expect("File not found");
-        static ref credentions: Credentions = toml::from_str(f.as_str()).unwrap();
-        static ref CEX_USERID: &'static str = credentions.CEX_USERID.as_str();
-        static ref CEX_API_KEY: &'static str = credentions.CEX_API_KEY.as_str();
-        static ref CEX_API_SECRET: &'static str = credentions.CEX_API_SECRET.as_str();
+        static ref credentials: Credentials = toml::from_str(f.as_str()).unwrap();
+        static ref CEX_USERID: &'static str = credentials.CEX_USERID.as_str();
+        static ref CEX_API_KEY: &'static str = credentials.CEX_API_KEY.as_str();
+        static ref CEX_API_SECRET: &'static str = credentials.CEX_API_SECRET.as_str();
         pub static ref cex_api: CexAPI = CexAPI::new(*CEX_USERID, *CEX_API_KEY, *CEX_API_SECRET);
     }
 
