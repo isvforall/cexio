@@ -220,7 +220,7 @@ impl CexAPI {
 #[cfg(test)]
 mod tests {
 
-    use crate::api::CexAPI;
+    use super::CexAPI;
     use crate::models::Symbol;
 
     use serde::Deserialize;
@@ -228,9 +228,9 @@ mod tests {
 
     #[derive(Deserialize)]
     struct Credentials {
-        CEX_USERID: String,
-        CEX_API_KEY: String,
-        CEX_API_SECRET: String,
+        cex_userid: String,
+        cex_api_key: String,
+        cex_api_secret: String,
     }
 
     // Public API calls
@@ -284,9 +284,9 @@ mod tests {
         static ref f: String =
             fs::read_to_string("/home/isvforall/credentials.toml").expect("File not found");
         static ref credentials: Credentials = toml::from_str(f.as_str()).unwrap();
-        static ref CEX_USERID: &'static str = credentials.CEX_USERID.as_str();
-        static ref CEX_API_KEY: &'static str = credentials.CEX_API_KEY.as_str();
-        static ref CEX_API_SECRET: &'static str = credentials.CEX_API_SECRET.as_str();
+        static ref CEX_USERID: &'static str = credentials.cex_userid.as_str();
+        static ref CEX_API_KEY: &'static str = credentials.cex_api_key.as_str();
+        static ref CEX_API_SECRET: &'static str = credentials.cex_api_secret.as_str();
         pub static ref cex_api: CexAPI = CexAPI::new(*CEX_USERID, *CEX_API_KEY, *CEX_API_SECRET);
     }
 
