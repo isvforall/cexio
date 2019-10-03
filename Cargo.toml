@@ -21,7 +21,7 @@ include = [
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-reqwest = "0.9.20"
+reqwest = "0.9.21"
 serde = { version = "1.0.101", features = ["derive"] }
 ring = "0.16.9"
 hex = "0.4.0"
