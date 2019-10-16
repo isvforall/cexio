@@ -26,6 +26,7 @@ pub enum Symbol {
     GUSD,
     ONT,
     ONG,
+    USDT,
 }
 
 pub fn symbols_to_string(symbols: Vec<Symbol>) -> String {
