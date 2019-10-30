@@ -22,11 +22,11 @@ include = [
 
 [dependencies]
 reqwest = "0.9.22"
-serde = { version = "1.0.101", features = ["derive"] }
+serde = { version = "1.0.102", features = ["derive"] }
 ring = "0.16.9"
 hex = "0.4.0"
 strum_macros = "0.16.0"
 
 [dev-dependencies]
-toml = "0.5.3"
+toml = "0.5.4"
 lazy_static = "1.4.0"
