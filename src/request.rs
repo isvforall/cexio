@@ -66,7 +66,6 @@ where
     for<'de> T: Deserialize<'de>,
 {
     let url = format!("{}{}/{}", base_url, symbol1, symbol2);
-
     post_req(signature, &url, &mut params).unwrap().json()
 }
 
@@ -78,8 +77,6 @@ fn post_req(
     for k in signature.keys() {
         params.insert(k.to_string(), signature[k].clone());
     }
-
     let client = reqwest::Client::new();
-
     client.post(&format!("{}{}", ROOT, url)).json(params).send()
 }
