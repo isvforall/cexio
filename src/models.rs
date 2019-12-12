@@ -4,6 +4,7 @@ use strum_macros::Display;
 
 #[derive(Display)]
 pub enum Symbol {
+    ADA,
     BF1,
     BTC,
     DVC,
