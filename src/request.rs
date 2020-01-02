@@ -22,12 +22,12 @@ where
     for<'de> T: Deserialize<'de>,
 {
     let url = format!("{}{}/{}", base_url, symbol1, symbol2);
-    get_req(&url).unwrap().json()
+    get_req(&url)?.json()
 }
 
-pub(crate) fn get_req(url: &str) -> Result<reqwest::Response, reqwest::Error> {
+pub(crate) fn get_req(url: &str) -> Result<reqwest::blocking::Response, reqwest::Error> {
     let full_url = format!("{}{}", ROOT, url);
-    reqwest::get(&full_url)
+    reqwest::blocking::get(&full_url)
 }
 
 #[allow(dead_code)]
@@ -73,10 +73,10 @@ fn post_req(
     signature: HashMap<String, String>,
     url: &str,
     params: &mut HashMap<String, String>,
-) -> Result<reqwest::Response, reqwest::Error> {
+) -> Result<reqwest::blocking::Response, reqwest::Error> {
     for k in signature.keys() {
         params.insert(k.to_string(), signature[k].clone());
     }
-    let client = reqwest::Client::new();
+    let client = reqwest::blocking::Client::new();
     client.post(&format!("{}{}", ROOT, url)).json(params).send()
 }
