@@ -5,6 +5,7 @@ use strum_macros::Display;
 #[derive(Display)]
 pub enum Symbol {
     ADA,
+    ATOM,
     BCH,
     BF1,
     BTC,
@@ -14,10 +15,12 @@ pub enum Symbol {
     DVC,
     ETH,
     EUR,
+    GAS,
     GHS,
     GUSD,
     IXC,
     LTC,
+    NEO,
     NMC,
     ONG,
     ONT,
