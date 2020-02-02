@@ -6,6 +6,7 @@ use strum_macros::Display;
 pub enum Symbol {
     ADA,
     ATOM,
+    BAT,
     BCH,
     BF1,
     BTC,
