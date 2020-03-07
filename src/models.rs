@@ -32,6 +32,7 @@ pub enum Symbol {
     USDT,
     XLM,
     XRP,
+    XTZ,
     ZEC,
 }
 
