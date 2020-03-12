@@ -21,12 +21,12 @@ include = [
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-reqwest = { version = "0.10.3", features = ["blocking", "json"] }
+reqwest = { version = "0.10.4", features = ["blocking", "json"] }
 serde = { version = "1.0.104", features = ["derive"] }
 hmac = "0.7.1"
 sha2 = "0.8.1"
 hex = "0.4.2"
-strum_macros = "0.17.1"
+strum_macros = "0.18.0"
 
 [dev-dependencies]
 toml = "0.5.6"
