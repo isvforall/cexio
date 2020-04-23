@@ -20,6 +20,7 @@ pub enum Symbol {
     GHS,
     GUSD,
     IXC,
+    LINK,
     LTC,
     NEO,
     NMC,
