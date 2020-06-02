@@ -1,5 +1,4 @@
 use serde::{Deserialize, Serialize};
-
 use strum_macros::Display;
 
 #[derive(Display)]
@@ -189,16 +188,26 @@ pub struct RUB {
 pub struct BalanceResult {
     pub timestamp: String,
     pub username: String,
-    #[serde(default)]  pub BTC: BTC,
-    #[serde(default)]  pub BCH: BCH,
-    #[serde(default)]  pub ETH: ETH,
-    #[serde(default)]  pub LTC: LTC,
-    #[serde(default)]  pub DASH: DASH,
-    #[serde(default)]  pub ZEC: ZEC,
-    #[serde(default)]  pub USD: USD,
-    #[serde(default)]  pub EUR: EUR,
-    #[serde(default)]  pub GBP: GBP,
-    #[serde(default)]  pub RUB: RUB,
+    #[serde(default)]
+    pub BTC: BTC,
+    #[serde(default)]
+    pub BCH: BCH,
+    #[serde(default)]
+    pub ETH: ETH,
+    #[serde(default)]
+    pub LTC: LTC,
+    #[serde(default)]
+    pub DASH: DASH,
+    #[serde(default)]
+    pub ZEC: ZEC,
+    #[serde(default)]
+    pub USD: USD,
+    #[serde(default)]
+    pub EUR: EUR,
+    #[serde(default)]
+    pub GBP: GBP,
+    #[serde(default)]
+    pub RUB: RUB,
 }
 
 #[derive(Deserialize, Debug)]

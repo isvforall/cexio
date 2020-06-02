@@ -1,8 +1,6 @@
-use std::collections::HashMap;
-
 use crate::models::Symbol;
-
 use serde::Deserialize;
+use std::collections::HashMap;
 
 const ROOT: &str = "https://cex.io/api/";
 

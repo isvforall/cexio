@@ -1,14 +1,10 @@
 use crate::models::*;
-
 use crate::request::*;
-
+use hex::encode;
+use hmac::{Hmac, Mac};
+use sha2::Sha256;
 use std::collections::HashMap;
 use std::time::SystemTime;
-
-use sha2::Sha256;
-use hmac::{Hmac, Mac};
-
-use hex::encode;
 
 type HmacSha256 = Hmac<Sha256>;
 
@@ -38,12 +34,12 @@ impl CexAPI {
             .unwrap()
             .as_micros()
             .to_string();
-        
+
         let mut signed_key = HmacSha256::new_varkey(&self.cex_api_secret.as_bytes()).unwrap();
         signed_key.input(&nonce.as_bytes());
         signed_key.input(&self.cex_userid.as_bytes());
         signed_key.input(&self.cex_api_key.as_bytes());
-        
+
         let signature = encode(signed_key.result().code()).to_uppercase();
 
         let mut map = HashMap::new();
@@ -226,6 +222,7 @@ mod tests {
 
     use serde::Deserialize;
     use std::fs;
+    use lazy_static::lazy_static;
 
     #[derive(Deserialize)]
     struct Credentials {
