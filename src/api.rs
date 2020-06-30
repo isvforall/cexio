@@ -1,7 +1,7 @@
 use crate::models::*;
 use crate::request::*;
 use hex::encode;
-use hmac::{Hmac, Mac};
+use hmac::{Hmac, NewMac, Mac};
 use sha2::Sha256;
 use std::collections::HashMap;
 use std::time::SystemTime;
@@ -36,11 +36,11 @@ impl CexAPI {
             .to_string();
 
         let mut signed_key = HmacSha256::new_varkey(&self.cex_api_secret.as_bytes()).unwrap();
-        signed_key.input(&nonce.as_bytes());
-        signed_key.input(&self.cex_userid.as_bytes());
-        signed_key.input(&self.cex_api_key.as_bytes());
+        signed_key.update(&nonce.as_bytes());
+        signed_key.update(&self.cex_userid.as_bytes());
+        signed_key.update(&self.cex_api_key.as_bytes());
 
-        let signature = encode(signed_key.result().code()).to_uppercase();
+        let signature = encode(signed_key.finalize().into_bytes()).to_uppercase();
 
         let mut map = HashMap::new();
         map.insert("key".to_string(), self.cex_api_key.to_string());
@@ -328,8 +328,9 @@ mod tests {
             .place_order(Symbol::BTC, Symbol::USD, "buy".to_string(), 0.42, 0.42)
             .is_ok());
     }
-    // TODO
+
     // #[test]
+    // #[allow(dead_code)]
     fn get_order_test() {
         assert!(cex_api.get_order(111111111111).is_ok());
     }
