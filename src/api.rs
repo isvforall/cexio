@@ -1,7 +1,7 @@
 use crate::models::*;
 use crate::request::*;
 use hex::encode;
-use hmac::{Hmac, NewMac, Mac};
+use hmac::{Hmac, Mac, NewMac};
 use sha2::Sha256;
 use std::collections::HashMap;
 use std::time::SystemTime;
@@ -219,12 +219,12 @@ mod tests {
 
     use super::CexAPI;
     use crate::models::Symbol;
-
+    use lazy_static::lazy_static;
     use serde::Deserialize;
     use std::fs;
-    use lazy_static::lazy_static;
 
     #[derive(Deserialize)]
+    #[serde(rename_all = "UPPERCASE")]
     struct Credentials {
         cex_userid: String,
         cex_api_key: String,
