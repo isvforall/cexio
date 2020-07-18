@@ -225,10 +225,10 @@ mod tests {
 
     #[derive(Deserialize)]
     #[serde(rename_all = "UPPERCASE")]
-    struct Credentials {
-        cex_userid: String,
-        cex_api_key: String,
-        cex_api_secret: String,
+    struct Credentials<'a> {
+        cex_userid: &'a str,
+        cex_api_key: &'a str,
+        cex_api_secret: &'a str,
     }
 
     // Public API calls
@@ -279,44 +279,37 @@ mod tests {
 
     // Private API calls
     lazy_static! {
-        static ref f: String =
+        static ref CREDENTIALS_FILE: String =
             fs::read_to_string("/home/isvforall/credentials.toml").expect("File not found");
-        static ref credentials: Credentials = toml::from_str(f.as_str()).unwrap();
-        static ref CEX_USERID: &'static str = credentials.cex_userid.as_str();
-        static ref CEX_API_KEY: &'static str = credentials.cex_api_key.as_str();
-        static ref CEX_API_SECRET: &'static str = credentials.cex_api_secret.as_str();
+        static ref CREDENTIALS: Credentials<'static> =
+            toml::from_str(CREDENTIALS_FILE.as_str()).unwrap();
+        static ref CEX_USERID: &'static str = CREDENTIALS.cex_userid;
+        static ref CEX_API_KEY: &'static str = CREDENTIALS.cex_api_key;
+        static ref CEX_API_SECRET: &'static str = CREDENTIALS.cex_api_secret;
         pub static ref cex_api: CexAPI = CexAPI::new(*CEX_USERID, *CEX_API_KEY, *CEX_API_SECRET);
     }
 
-    #[test]
+    // #[test]
     fn balance_test() {
         assert!(cex_api.balance().is_ok());
     }
-    #[test]
+    // #[test]
     fn open_orders_test() {
         assert!(cex_api.open_orders().is_ok());
     }
-    // TODO
-    // #[test]
-    fn open_orders_pair_test() {
-        assert!(false);
-    }
-    // TODO
+    #[test]
+    fn open_orders_pair_test() {}
     // #[test]
     fn active_order_status_test() {
         assert!(cex_api.active_orders_status(vec!["".to_string()]).is_ok());
     }
-    // TODO
     // #[test]
-    fn archived_order_test() {
-        assert!(false);
-    }
-    // TODO
+    fn archived_order_test() {}
     // #[test]
     fn cancel_order_test() {
         assert!(cex_api.cancel_order(1111111111).is_ok());
     }
-    #[test]
+    // #[test]
     fn cancel_order_by_pair_test() {
         assert!(cex_api
             .cancel_orders_by_pair(Symbol::BTC, Symbol::USD)
@@ -330,55 +323,35 @@ mod tests {
     }
 
     // #[test]
-    // #[allow(dead_code)]
     fn get_order_test() {
         assert!(cex_api.get_order(111111111111).is_ok());
     }
-    // TODO
     // #[test]
     fn get_order_tx_test() {
         assert!(cex_api.get_order_tx(111111111).is_ok());
     }
 
-    #[test]
+    // #[test]
     fn get_address_test() {
         assert!(cex_api.get_address(Symbol::BTC).is_ok());
     }
-    #[test]
+    // #[test]
     fn get_myfee_test() {
         assert!(cex_api.get_myfee().is_ok());
     }
-    // TODO
-    // #[test]
-    fn cancel_replace_order_test() {
-        assert!(false);
-    }
-    // TODO
-    // #[test]
-    fn open_position_test() {
-        assert!(false);
-    }
-    // TODO
-    // #[test]
-    fn get_position_test() {
-        assert!(false);
-    }
-    // TODO
-    // #[test]
-    fn open_position_by_symbol_test() {
-        assert!(false);
-    }
-    // TODO
-    // #[test]
-    fn close_position_test() {
-        assert!(false);
-    }
-    // TODO
-    // #[test]
-    fn archived_positions_test() {
-        assert!(false);
-    }
     #[test]
+    fn cancel_replace_order_test() {}
+    #[test]
+    fn open_position_test() {}
+    #[test]
+    fn get_position_test() {}
+    #[test]
+    fn open_position_by_symbol_test() {}
+    #[test]
+    fn close_position_test() {}
+    #[test]
+    fn archived_positions_test() {}
+    // #[test]
     fn get_marginal_fee_test() {
         assert!(cex_api.get_marginal_fee(Symbol::BTC, Symbol::USD).is_ok());
     }
