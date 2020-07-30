@@ -34,6 +34,7 @@ pub enum Symbol {
     XRP,
     XTZ,
     ZEC,
+    ZRX,
 }
 
 pub fn symbols_to_string(symbols: Vec<Symbol>) -> String {
