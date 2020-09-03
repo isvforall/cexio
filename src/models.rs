@@ -9,7 +9,6 @@ pub enum Symbol {
     BCH,
     BF1,
     BTC,
-    BTG,
     BTT,
     DASH,
     DVC,
