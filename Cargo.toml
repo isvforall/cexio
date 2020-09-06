@@ -1,33 +1,44 @@
 [package]
-name = "cexio"
-version = "0.5.3"
-authors = ["Sergey Isaev <isvforall@gmail.com>"]
-edition = "2018"
-
-description = "Client for Cex.io crypto exchange API"
-keywords = ["cexio", "cryptocurrency", "trading", "bitcoin", "crypto"]
-license = "MIT"
-repository = "https://github.com/isvforall/cexio"
-homepage = "https://github.com/isvforall/cexio"
-documentation = "https://docs.rs/cexio"
-readme = "README.md"
-categories = ["api-bindings"]
+name = 'cexio'
+version = '0.5.3'
+authors = ['Sergey Isaev <isvforall@gmail.com>']
+edition = '2018'
+description = 'Client for Cex.io crypto exchange API'
+keywords = [
+    'cexio',
+    'cryptocurrency',
+    'trading',
+    'bitcoin',
+    'crypto',
+]
+license = 'MIT'
+repository = 'https://github.com/isvforall/cexio'
+homepage = 'https://github.com/isvforall/cexio'
+documentation = 'https://docs.rs/cexio'
+readme = 'README.md'
+categories = ['api-bindings']
 include = [
-    "**/*.rs",
-    "Cargo.toml",
+    '**/*.rs',
+    'Cargo.toml',
 ]
 
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-reqwest = { version = "0.10.7", features = ["blocking", "json"] }
-serde = { version = "1.0.114", features = ["derive"] }
-hmac = "0.8.1"
-sha2 = "0.9.1"
-hex = "0.4.2"
-strum_macros = "0.18.0"
+hmac = '0.8.1'
+sha2 = '0.9.1'
+hex = '0.4.2'
+strum_macros = '0.18.0'
+
+[dependencies.reqwest]
+version = '0.10.7'
+features = [
+    'blocking',
+    'json',
+]
+
+[dependencies.serde]
+version = '1.0.114'
+features = ['derive']
 
 [dev-dependencies]
-toml = "0.5.6"
-lazy_static = "1.4.0"
+toml = '0.5.6'
+lazy_static = '1.4.0'
