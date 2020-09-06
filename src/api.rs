@@ -21,11 +21,11 @@ impl CexAPI {
         cex_api_key: &'static str,
         cex_api_secret: &'static str,
     ) -> Self {
-        return CexAPI {
-            cex_userid: cex_userid,
-            cex_api_key: cex_api_key,
-            cex_api_secret: cex_api_secret,
-        };
+        CexAPI {
+            cex_userid,
+            cex_api_key,
+            cex_api_secret,
+        }
     }
 
     fn get_signature(self) -> HashMap<String, String> {
@@ -289,69 +289,100 @@ mod tests {
         pub static ref cex_api: CexAPI = CexAPI::new(*CEX_USERID, *CEX_API_KEY, *CEX_API_SECRET);
     }
 
-    // #[test]
+    #[test]
+    #[ignore]
     fn balance_test() {
         assert!(cex_api.balance().is_ok());
     }
-    // #[test]
+    #[test]
+    #[ignore]
     fn open_orders_test() {
         assert!(cex_api.open_orders().is_ok());
     }
     #[test]
+    #[ignore]
     fn open_orders_pair_test() {}
-    // #[test]
+    #[test]
+    #[ignore]
     fn active_order_status_test() {
         assert!(cex_api.active_orders_status(vec!["".to_string()]).is_ok());
     }
-    // #[test]
+    #[test]
+    #[ignore]
     fn archived_order_test() {}
-    // #[test]
+    #[test]
+    #[ignore]
     fn cancel_order_test() {
         assert!(cex_api.cancel_order(1111111111).is_ok());
     }
-    // #[test]
+    #[test]
+    #[ignore]
     fn cancel_order_by_pair_test() {
         assert!(cex_api
             .cancel_orders_by_pair(Symbol::BTC, Symbol::USD)
             .is_ok());
     }
-    // #[test]
+    #[test]
+    #[ignore]
     fn place_order_test() {
         assert!(cex_api
             .place_order(Symbol::BTC, Symbol::USD, "buy".to_string(), 0.42, 0.42)
             .is_ok());
     }
 
-    // #[test]
+    #[test]
+    #[ignore]
     fn get_order_test() {
         assert!(cex_api.get_order(111111111111).is_ok());
     }
-    // #[test]
+    #[test]
+    #[ignore]
     fn get_order_tx_test() {
         assert!(cex_api.get_order_tx(111111111).is_ok());
     }
 
-    // #[test]
+    #[test]
+    #[ignore]
     fn get_address_test() {
         assert!(cex_api.get_address(Symbol::BTC).is_ok());
     }
-    // #[test]
+    #[test]
+    #[ignore]
     fn get_myfee_test() {
         assert!(cex_api.get_myfee().is_ok());
     }
     #[test]
-    fn cancel_replace_order_test() {}
+    #[ignore]
+    fn cancel_replace_order_test() {
+        unimplemented!()
+    }
     #[test]
-    fn open_position_test() {}
+    #[ignore]
+    fn open_position_test() {
+        unimplemented!()
+    }
     #[test]
-    fn get_position_test() {}
+    #[ignore]
+    fn get_position_test() {
+        unimplemented!()
+    }
     #[test]
-    fn open_position_by_symbol_test() {}
+    #[ignore]
+    fn open_position_by_symbol_test() {
+        unimplemented!()
+    }
     #[test]
-    fn close_position_test() {}
+    #[ignore]
+    fn close_position_test() {
+        unimplemented!()
+    }
     #[test]
-    fn archived_positions_test() {}
-    // #[test]
+    #[ignore]
+    fn archived_positions_test() {
+        unimplemented!()
+    }
+    #[test]
+    #[ignore]
     fn get_marginal_fee_test() {
         assert!(cex_api.get_marginal_fee(Symbol::BTC, Symbol::USD).is_ok());
     }
