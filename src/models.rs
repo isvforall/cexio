@@ -1,40 +1,66 @@
 use serde::{Deserialize, Serialize};
 use strum_macros::Display;
 
-#[derive(Display)]
-pub enum Symbol {
-    ADA,
-    ATOM,
-    BAT,
-    BCH,
-    BF1,
-    BTC,
-    BTT,
-    DASH,
-    DVC,
-    ETH,
-    EUR,
-    GAS,
-    GHS,
-    GUSD,
-    IXC,
-    LINK,
-    LTC,
-    NEO,
-    NMC,
-    ONG,
-    ONT,
-    RUB,
-    TRX,
-    USD,
-    USDC,
-    USDT,
-    XLM,
-    XRP,
-    XTZ,
-    ZEC,
-    ZRX,
+macro_rules! symbol_enum{
+    ($first:ident $(, $sym:ident)*) => {
+        #[derive(Display)]
+        pub enum Symbol {
+            $first,
+            $(
+                $sym,
+            )?
+        }
+    }
 }
+
+macro_rules! currency_struct {
+    ($first:ident $(, $curr_name: ident)*) => {
+
+        #[derive(Debug, Default, Deserialize)]
+        pub struct $first {
+            pub available: String,
+            pub orders: String,
+        }
+
+        $(
+            #[derive(Debug, Default, Deserialize)]
+            pub struct $curr_name {
+                pub available: String,
+                pub orders: String,
+            }
+        )?
+    }
+}
+
+macro_rules! balance_currency_def {
+    ($first:ident $(, $curr:ident)*) => {
+        #[derive(Debug, Deserialize)]
+        pub struct BalanceResult {
+            pub timestamp: String,
+            pub username: String,
+
+           #[serde(default)]
+           pub $first: $first,
+            $(
+               #[serde(default)]
+               pub $curr: $curr,
+            )?
+        }
+    }
+}
+
+macro_rules! all_def {
+    ($first:ident $(, $curr:ident)*) => {
+        symbol_enum!($first $(, $curr)?);
+        currency_struct!($first $(, $curr)?);
+        balance_currency_def!($first $(, $curr)?);
+    }
+}
+
+all_def!(AAVE,ADA,AKRO,ANT,ATOM,BAL,BAND,BAT,BCH,BCHA,BNT,BTC,BTT,BUSD,COMP,CREAM,CRV
+,DAI,DASH,DOT,ETH,EUR,FUN,GAS,GBP,GLM,GUSD,GZIL,HOT,KAVA,KNC,KSM,LAMB,LINK,LTC,MATIC,MHC,MKR,MTA,
+MUSD,NEO,OCEAN,OMG,ONG,ONT,PAXG,REN,REPV2,RUB,SNX,SRM,STORJ,SUSHI,TON,TRX,TUSD,UMA,UNI,USD,USDC,
+USDT,UTK,WABI,WBTC,XLM,XRP,XTZ,YFI,YFII,ZAP,ZIL,ZRX);
 
 pub fn symbols_to_string(symbols: Vec<Symbol>) -> String {
     symbols
@@ -122,92 +148,6 @@ pub struct LastPriceMarketsResult {
 #[derive(Debug, Deserialize)]
 pub struct ConvertResult {
     pub amnt: f64,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct BTC {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct BCH {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct ETH {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct LTC {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct DASH {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct ZEC {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct USD {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct EUR {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct GBP {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Default, Deserialize)]
-pub struct RUB {
-    pub available: String,
-    pub orders: String,
-}
-
-#[derive(Debug, Deserialize)]
-pub struct BalanceResult {
-    pub timestamp: String,
-    pub username: String,
-    #[serde(default)]
-    pub BTC: BTC,
-    #[serde(default)]
-    pub BCH: BCH,
-    #[serde(default)]
-    pub ETH: ETH,
-    #[serde(default)]
-    pub LTC: LTC,
-    #[serde(default)]
-    pub DASH: DASH,
-    #[serde(default)]
-    pub ZEC: ZEC,
-    #[serde(default)]
-    pub USD: USD,
-    #[serde(default)]
-    pub EUR: EUR,
-    #[serde(default)]
-    pub GBP: GBP,
-    #[serde(default)]
-    pub RUB: RUB,
 }
 
 #[derive(Deserialize, Debug)]
