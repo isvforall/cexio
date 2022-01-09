@@ -2,7 +2,7 @@
 
 <h5 align="center"> Rust Library for the <a href="https://cex.io/rest-api"> Cex.io API</a> </h5>
 
-[![crates.io](https://meritbadge.herokuapp.com/cexio)](https://crates.io/crates/cexio)
+[![Crates.io](https://img.shields.io/crates/v/cexio.svg)](https://crates.io/crates/cexio)
 [![Downloads from crates.io](https://img.shields.io/crates/d/cexio.svg)](https://crates.io/crates/cexio)
 [![doc.rs](https://docs.rs/cexio/badge.svg)](https://docs.rs/cexio/)
 [![Dependency status](https://deps.rs/repo/github/isvforall/cexio/status.svg)](https://deps.rs/repo/github/isvforall/cexio)
